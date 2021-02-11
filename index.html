@@ -1,0 +1,75 @@
+<html>
+<head>
+
+<title>Vue Js</title>
+ <!-- Compiled and minified CSS -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+         
+
+<script src="https://unpkg.com/vue"></script>
+
+</head>
+<body>
+
+    <p>Test hello Everyone</p>
+
+<div id="app">
+    <header>
+        <h1 v-text="sitename"></h1>
+    </header>
+    <main>
+        <figure>
+            <img v-bind:src="product.image">
+        </figure>
+        <h2 v-text="product.title"></h2>
+        <p v-text="product.description"></p>
+
+        <p v-html="product.price"></p>
+        <button @click = "addToCart">Add to cart</button>
+
+
+    </main>
+
+    <p v-text="cart"></p>
+
+
+  
+
+</div>
+
+
+
+<script type="text/javascript">
+    var webstore = new Vue({
+
+        el: '#app',
+        data: {
+            sitename: 'Burger Online Order',
+            product: {
+                id:1001,
+                title: "Chili Burger",
+                description: "A Perfect," + "Burger.",
+                price: 2000 + "$",
+                image: "https://aux2.iconspalace.com/uploads/425414198341450644.png"
+            },
+            cart : []
+
+        },
+
+        methods : {
+            addToCart (){
+                this.cart.push(this.product.id);
+            }
+        }
+
+        
+
+         });
+
+
+</script>
+</body>
+</html>
